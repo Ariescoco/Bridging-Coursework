@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <title>My blog</title>
+    </head>
+    <body class="indexback">
+        <h1>welcome to my blog</h1>
+        <a href="{% url 'post_list' %}">blog</a>
+        <a href="/">CV</a>
+    </body>
+<!-- <img src="{% static "background.jpg" %}" alt="My image"> -->
+
+</html>

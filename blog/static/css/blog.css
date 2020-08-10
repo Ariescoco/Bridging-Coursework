@@ -1,7 +1,9 @@
 .page-header {
-    background-color: #C25100;
+    /* background-color: #C25100; */
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 100px 100px 200px 400px;
+    background-image: url(../background.jpg);
+    background-position: center;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -48,3 +50,12 @@ h1, h2, h3, h4 {
 .comment {
     margin: 20px 0px 20px 20px;
 }
+
+.indexback {
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    background-origin:border-box;
+    background-image: url(../index.jpg);
+    background-position: center;
+}
+
