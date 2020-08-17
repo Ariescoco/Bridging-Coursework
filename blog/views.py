@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+import markdown
 
 # Create your views here.
 def post_list(request):
@@ -13,6 +14,12 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    post.text = markdown.markdown(post.text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
     return render(request, 'blog/post_detail.html', {'post': post})
 
 @login_required

@@ -13,8 +13,24 @@
         
     </head>
     <body>
+        <div class="sidebar">
+            <div class="title">Ke's Blog</div>
+            <div class="sideimg">
+                <img src="{% static "sider.jpg" %}">
+            </div>
+            
+           <div class="intro">Hello, my name is Ke Xu. Welcome to my blog. In this blog I mainly post some learning expenence and my CV.</div>
+           <div class="linkmenu">
+                <font color = "white">...............................................</font>
+                <p class="linkmenu"><a class="greylink" href="{% url 'index' %}">Index page</a></p>
+                <p class="linkmenu"><a class="greylink" href="{% url 'post_list' %}">Post list</a></p>
+                <p class="linkmenu"><a class="greylink" href="{% url 'index' %}">CV page</a></p>
+           </div>
+           
+          
+        </div>
         <div class="page-header">
-            <!-- <img src="{% static "background.jpg" %}" alt="My image"> -->
+           
             {% if user.is_authenticated %}
                 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
@@ -22,7 +38,8 @@
             {% else %}
                 <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
-            <h1><a href="/">My Blog</a></h1>
+            <p class="heading">BeginerBlog - A blog for Bridging-CourseWork</p>
+            <p class="heading2">Welcome to my blog. You can write any comments under the posts.</p>
         </div>
         <div class="content container">
             <div class="row">

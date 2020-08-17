@@ -1,23 +1,78 @@
 .page-header {
     /* background-color: #C25100; */
+    background-color: #e0e0e0;
     margin-top: 0;
-    padding: 100px 100px 200px 400px;
-    background-image: url(../background.jpg);
-    background-position: center;
+    padding: 20px 20px 20px 80px;
+    
+}
+.title{
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36pt;
+    color: #ffffff;
+
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    color: #000000;
     font-size: 36pt;
     text-decoration: none;
 }
 
-.content {
-    margin-left: 40px;
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #5fcb71 ;
+    overflow: hidden;
+    padding-top: 20px;
+    
 }
 
-h1, h2, h3, h4 {
+
+.content {
+    margin-left: 400px;
+}
+
+h1{
+    /* text-align: center; */
+    font: bold;
+    /* font-family: 'Lobster', cursive; */
+    text-align: center;
+    margin-left: 200px;
+    /* margin-top: 80px;    */
+
+}
+
+.heading{
+    font: bold;
+    text-align: center;
+    margin-left: 200px;
+    font-size: 28px;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    /* left: 55%; */
+}
+
+.heading2{
     font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 20px;
+    /* margin-top: 130px; */
+    margin-left: 200px;
+    color: #828282;
+    margin-bottom: 30px;
+
+}
+
+
+h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+    
 }
 
 .date {
@@ -33,14 +88,38 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: gray;
     float: right;
-    font-size: 26pt;
+    /* line-height: -700px; */
+    font-size: 16pt;
     margin-right: 20px;
+    margin-bottom: -20px;
+}
+
+.sideimg{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sideimg img{
+    width: 180px;
+    height: 256px;
+    /* text-align: center; */
+}
+
+.intro{
+    /* margin-top: 250px; */
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
 }
 
 .post {
     margin-bottom: 70px;
+    margin-left: 100px;
 }
 
 .post h2 a, .post h2 a:visited {
@@ -48,7 +127,7 @@ h1, h2, h3, h4 {
 }
 
 .comment {
-    margin: 20px 0px 20px 20px;
+    margin: 20px 0px 20px 80px;
 }
 
 .indexback {
@@ -59,3 +138,14 @@ h1, h2, h3, h4 {
     background-position: center;
 }
 
+.linkmenu{
+    text-align: center;
+    font-style: italic;
+    /* color: #828282; */
+    font-size: 22pt;
+}
+
+.greylink{
+color: #25863d86;
+
+}
