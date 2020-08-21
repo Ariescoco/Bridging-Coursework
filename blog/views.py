@@ -93,5 +93,9 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 def index(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'index/index.html')
+
+def cv(request):
+
+    return render(request, 'cv/cv.html')
