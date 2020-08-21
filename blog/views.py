@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Comment
+from .models import Post, Comment, info, education, work, skills, voluneering
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, CommentForm, InfoForm
 from django.shortcuts import redirect
@@ -97,9 +97,16 @@ def index(request):
     return render(request, 'index/index.html')
 
 def cv(request):
+    infos = info.objects.all()
+    educations = education.objects.all()
+    works = work.objects.all()
+    skillss = skills.objects.all()
+    voluneerings = voluneering.objects.all()
+    return render(request, 'cv/cv.html', {'infos': infos, 'educations':educations, 'works':works, 'skillss':skillss, 'voluneerings':voluneerings})
 
-    return render(request, 'cv/cv.html')
-
+# def post_list(request):
+#     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+#     return render(request, 'blog/post_list.html', {'posts': posts})
 # @login_required
 # def info_new(request):
 #     if request.method == "POST":

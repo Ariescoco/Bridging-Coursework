@@ -1,5 +1,25 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<h1>hello world</h1>
+    <h1>hello world</h1>
+    <h2>1233</h2>
+    {% for info in infos %}
+        <h2>{{info.text}}</h2>
+    {% endfor%}
+
+    {% for education in educations %}
+        <h2>{{education.text}}</h2>
+    {% endfor %}
+    
+    {% for work in works %}
+        <h2>{{work.text}}</h2>
+    {% endfor %}
+
+    {% for skills in skillss %}
+        <h2>{{skills.text}}</h2>
+    {% endfor %}
+
+    {% for voluneering in voluneerings %}
+        <h2>{{voluneering.text}}</h2>
+    {% endfor %}
 {% endblock %}
