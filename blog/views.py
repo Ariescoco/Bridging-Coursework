@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post, Comment
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, InfoForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 import markdown
@@ -99,3 +99,16 @@ def index(request):
 def cv(request):
 
     return render(request, 'cv/cv.html')
+
+# @login_required
+# def info_new(request):
+#     if request.method == "POST":
+#         form = InfoForm(request.POST)
+#         if form.is_valid():
+#             info = form.save(commit=False)
+#             info.text = text
+#             info.save()
+#             return redirect('cv')
+#     else:
+#         form = InfoForm()
+#     return render(request, 'cv/infonew.html', {'form': form})

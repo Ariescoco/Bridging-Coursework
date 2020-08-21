@@ -14,4 +14,5 @@ urlpatterns = [
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
     path('index', views.index, name='index'),
     path('cv', views.cv, name='cv'),
+    # path('cv/infonew/', views.info_new, name='info_new'),
 ]

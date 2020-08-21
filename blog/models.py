@@ -31,5 +31,36 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
-def approved_comments(self):
-    return self.comments.filter(approved_comment=True)
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+  
+
+class info(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text  
+
+class education(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
+class work(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
+class skills(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
+
+class voluneering(models.Model):
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
