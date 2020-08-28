@@ -1,25 +1,41 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <h1>hello world</h1>
-    <h2>1233</h2>
-    {% for info in infos %}
-        <h2>{{info.text}}</h2>
-    {% endfor%}
-
-    {% for education in educations %}
-        <h2>{{education.text}}</h2>
-    {% endfor %}
+    <h1>My CV</h1>
+    <div class="border">
+        <h2>Basic Information</h2>
+        {% for info in infos %}
+            {{info.text|safe}}
+        {% endfor%}
+    </div>
+    <br>
+    <div class="border">
+        
+        <h2>Education</h2>
+        {% for education in educations %}
+            {{education.text|safe}}
+        {% endfor %}   
+    </div>
+    <br>
+    <div class="border">
+        <h2>Work Experience</h2>
+        {% for work in works %}
+            {{work.text|safe}}
+        {% endfor %}
+    </div>
+    <br>
+    <div class="border">
+        <h2>Skills</h2>
+        {% for skills in skillss %}
+            <h2>{{skills.text|safe}}</h2>
+        {% endfor %}
+    </div>
+    <br>
+    <div class="border">
+        <h2>Voluneering</h2>
+        {% for voluneering in voluneerings %}
+            <h2>{{voluneering.text|safe}}</h2>
+        {% endfor %}
+    </div>
     
-    {% for work in works %}
-        <h2>{{work.text}}</h2>
-    {% endfor %}
-
-    {% for skills in skillss %}
-        <h2>{{skills.text}}</h2>
-    {% endfor %}
-
-    {% for voluneering in voluneerings %}
-        <h2>{{voluneering.text}}</h2>
-    {% endfor %}
 {% endblock %}

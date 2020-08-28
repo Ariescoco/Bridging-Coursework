@@ -98,24 +98,54 @@ def index(request):
 
 def cv(request):
     infos = info.objects.all()
+    length = len(infos)
+    for a in range(1,length+1):
+        infos[a-1].text = markdown.markdown(infos[a-1].text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+                                  
     educations = education.objects.all()
+    length = len(educations)
+    for a in range(1,length+1):
+        educations[a-1].text = markdown.markdown(educations[a-1].text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+
     works = work.objects.all()
+    length = len(works)
+    for a in range(1,length+1):
+        works[a-1].text = markdown.markdown(works[a-1].text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+
     skillss = skills.objects.all()
+    length = len(skillss)
+    for a in range(1,length+1):
+        skillss[a-1].text = markdown.markdown(skillss[a-1].text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+
     voluneerings = voluneering.objects.all()
+    length = len(voluneerings)
+    for a in range(1,length+1):
+        voluneerings[a-1].text = markdown.markdown(voluneerings[a-1].text,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+
     return render(request, 'cv/cv.html', {'infos': infos, 'educations':educations, 'works':works, 'skillss':skillss, 'voluneerings':voluneerings})
 
-# def post_list(request):
-#     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-#     return render(request, 'blog/post_list.html', {'posts': posts})
-# @login_required
-# def info_new(request):
-#     if request.method == "POST":
-#         form = InfoForm(request.POST)
-#         if form.is_valid():
-#             info = form.save(commit=False)
-#             info.text = text
-#             info.save()
-#             return redirect('cv')
-#     else:
-#         form = InfoForm()
-#     return render(request, 'cv/infonew.html', {'form': form})
