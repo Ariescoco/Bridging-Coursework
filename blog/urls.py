@@ -13,6 +13,7 @@ urlpatterns = [
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
     path('index', views.index, name='index'),
+    
+    path('cv/new_cv/', views.cv_new, name='cv_new'),
     path('cv', views.cv, name='cv'),
-    # path('cv/infonew/', views.info_new, name='info_new'),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post, Comment, info, education, work, skills, voluneering
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CommentForm, InfoForm
+from .forms import PostForm, CommentForm, InfoForm, educationForm, workForm, skillsForm, voluneeringForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 import markdown
@@ -22,11 +22,10 @@ def post_detail(request, pk):
                                   ])
     return render(request, 'blog/post_detail.html', {'post': post})
 
-@login_required
-def post_new(request):
-    [...]
 
-def post_new(request):
+
+@login_required
+def post_new(request):     
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -39,6 +38,7 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -53,19 +53,23 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+@login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
 
+@login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_detail', pk=pk)
 
+@login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
+
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -149,3 +153,41 @@ def cv(request):
 
     return render(request, 'cv/cv.html', {'infos': infos, 'educations':educations, 'works':works, 'skillss':skillss, 'voluneerings':voluneerings})
 
+# @login_required
+# def info_new(request):     
+#     if request.method == "POST":
+#         form = InfoForm(request.POST)
+#         if form.is_valid():
+#             info = form.save(commit=False)
+#             # post.author = request.user
+#             # post.published_date = timezone.now()
+#             info.save()
+#             return redirect('cv')
+#     else:
+#         form = PostForm()
+#     return redirect('cv')
+@login_required
+def cv_new(request):
+    if 'info' in request.POST:
+        form = InfoForm(request.POST)
+        newinfo = form.save()
+        return redirect('cv')
+    elif 'education' in request.POST:
+        form = educationForm(request.POST)
+        newinfo = form.save()
+        return redirect('cv')
+    elif 'work' in request.POST:
+        form = workForm(request.POST)
+        newinfo = form.save()
+        return redirect('cv')
+    elif 'skills' in request.POST:
+        form = skillsForm(request.POST)
+        newinfo = form.save()
+        return redirect('cv')
+    elif 'education' in request.POST:
+        form = voluneeringForm(request.POST)
+        newinfo = form.save()
+        return redirect('cv')
+    else:
+        form = InfoForm(request.POST)
+    return render(request, 'cv/new_cv.html', {'form': form})  

@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="info" value="add to info" />
+    <br>
+    <input type="submit" name="education" value="add to education" />
+    <br>
+    <input type="submit" name="work" value="add to work" />
+    <br>
+    <input type="submit" name="skills" value="add to skills" />
+    <br>
+    <input type="submit" name="voluneering" value="add to voluneering" />
+</form>
+
+
+{% endblock %}
