@@ -31,7 +31,6 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            # post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -46,7 +45,6 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            # post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -97,7 +95,6 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 def index(request):
-    # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'index/index.html')
 
 def cv(request):
@@ -153,19 +150,6 @@ def cv(request):
 
     return render(request, 'cv/cv.html', {'infos': infos, 'educations':educations, 'works':works, 'skillss':skillss, 'voluneerings':voluneerings})
 
-# @login_required
-# def info_new(request):     
-#     if request.method == "POST":
-#         form = InfoForm(request.POST)
-#         if form.is_valid():
-#             info = form.save(commit=False)
-#             # post.author = request.user
-#             # post.published_date = timezone.now()
-#             info.save()
-#             return redirect('cv')
-#     else:
-#         form = PostForm()
-#     return redirect('cv')
 @login_required
 def cv_new(request):
     if 'info' in request.POST:
