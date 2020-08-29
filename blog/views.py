@@ -184,7 +184,7 @@ def cv_new(request):
         form = skillsForm(request.POST)
         newinfo = form.save()
         return redirect('cv')
-    elif 'education' in request.POST:
+    elif 'voluneering' in request.POST:
         form = voluneeringForm(request.POST)
         newinfo = form.save()
         return redirect('cv')
