@@ -2,7 +2,7 @@
 
 {% block content %}
 <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
+    <div class="addcv">{{ form.as_p }}</div>
     <input type="submit" name="info" value="add to info" />
     <br>
     <input type="submit" name="education" value="add to education" />
